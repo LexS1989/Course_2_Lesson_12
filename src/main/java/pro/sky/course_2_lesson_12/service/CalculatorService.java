@@ -1,6 +1,7 @@
-package pro.sky.course_2_lesson_12.Service;
+package pro.sky.course_2_lesson_12.service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.course_2_lesson_12.exception.DivideByZeroException;
 
 @Service
 public class CalculatorService {
@@ -18,6 +19,9 @@ public class CalculatorService {
     }
 
     public float divide(float a, float b) {
+        if (b == 0) {
+            throw new DivideByZeroException("Calculation error! Деление на 0 не возможно");
+        }
         return a / b;
     }
 }
