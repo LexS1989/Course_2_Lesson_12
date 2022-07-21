@@ -1,10 +1,10 @@
-package pro.sky.course_2_lesson_12.Controller;
+package pro.sky.course_2_lesson_12.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pro.sky.course_2_lesson_12.Service.CalculatorService;
+import pro.sky.course_2_lesson_12.service.CalculatorService;
 
 import java.util.Objects;
 
@@ -56,10 +56,6 @@ public class CalculatorController {
         if (Objects.isNull(num1) || Objects.isNull(num2)) {
             return "Не верно переданы параметры";
         }
-        if (num2 == 0) {
-            return "Calculation error! Деление на 0 не возможно";
-        } else {
-            return num1 + " / " + num2 + " = " + calculatorService.divide(num1, num2);
-        }
+        return num1 + " / " + num2 + " = " + calculatorService.divide(num1, num2);
     }
 }
